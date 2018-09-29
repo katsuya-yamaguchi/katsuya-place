@@ -13,5 +13,8 @@
   "scripts": {
     "watch": "webpack --watch --config config/webpack.dev.config.js",
     "build": "webpack --config config/webpack.prod.config.js"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
