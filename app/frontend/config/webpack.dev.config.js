@@ -1,14 +1,16 @@
+const path = require('path')
+
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    application: './src/javascripts/application.js',
+    application: path.resolve(__dirname, '../src/javascripts/modal_menu.jsx'),
   },
   output: {
-    path: '../app/assets/javascripts',
+    path: path.resolve(__dirname, '../../assets/javascripts'),
     filename: '[name].js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
