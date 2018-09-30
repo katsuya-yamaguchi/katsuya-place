@@ -4,12 +4,34 @@
     <title>KatsuyaPlace</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=devise-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!--%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %-->
+    <link href="https://fonts.googleapis.com/css?family=Istok+Web:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
+    <header class="kp-header">
+      <h1 class="kp-header-title">KATSUYA PLACE</h1>
+      <p class="kp-menu">Menu</p>
+      <ul class="kp-header-menu">
+        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">PORTFOLIO</a></li>
+        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">BLOG</a></li>
+        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">CATEGORY</a></li>
+        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">ABOUT</a></li>
+      </ul>
+    </header>
+
     <%= yield %>
+
+    <div class="modal"></div>
+    <div class="kp-menu-modal">
+      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">PORTFOLIO</a></li>
+      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">BLOG</a></li>
+      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">CATEGORY</a></li>
+      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">ABOUT</a></li>
+    </div>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
