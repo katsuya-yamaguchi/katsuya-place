@@ -31,3 +31,7 @@
 
 /vendor/bundle/*
 /app/frontend/node_modules/*
+
+app/assets/images/
+
+app/assets/javascripts/
