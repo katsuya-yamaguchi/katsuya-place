@@ -1,25 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div>
+      <h1 class="original-title btm-line btm-line-blue"><i class="material-icons">done</i>人気の記事</h1>
+    </div>
 
-<h1>Articles</h1>
+    <div class="row-content">
+      <div class="card">
+        <%= image_tag 'sample.jpg', width: '30%', height: '30%' %>
+        <p class="card-title">はじめて作るRailsアプリケーション</p>
+      </div>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div>
+      <h1 class="original-title btm-line btm-line-blue"><i class="material-icons">done</i>最近の記事</h1>
+    <div>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>
+    <div class="row-content">
+      <% (1..5).each do |n| %>
+        <a href="#" class="none-style-anker">
+          <div class="card">
+            <%= image_tag 'sample.jpg', width: '30%', height: '30%' %>
+            <p class="card-title">はじめて作るRailsアプリケーション</p>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,21 @@
+/*
+  共通のCSSを定義したパーシャル
+*/
+
+.row {
+  margin: 1em 0 0 0;
+}
+
+.row-content {
+  margin: 1em 1em;
+}
+
+.none-style-anker {
+  text-decoration: none;
+  &:link{
+    color: #000;
+  }
+  &:visited{
+    color: #000;
+  }
+}
