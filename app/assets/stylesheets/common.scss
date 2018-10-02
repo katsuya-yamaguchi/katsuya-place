@@ -1,0 +1,38 @@
+/*
+  全体で共通となるCSSを定義
+*/
+
+@import './common_layout.scss';
+
+body {
+  margin: 0;
+  font-family: 'Istok Web', sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 1em auto;
+  padding-top: 85px;
+}
+@include container-by-devise(sm);
+@include container-by-devise(md);
+@include container-by-devise(lg);
+
+.row {
+  margin-bottom: 5em;
+}
+
+.row-content {
+  width: 100%;
+  margin: 1em auto;
+}
+
+.none-style-anker {
+  text-decoration: none;
+  &:link{
+    color: #000;
+  }
+  &:visited{
+    color: #000;
+  }
+}

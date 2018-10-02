@@ -1,0 +1,75 @@
+/*
+  共通のCSSを定義したパーシャル
+*/
+
+$breakpoint: (
+  /* Tablet(480~768px) */
+  sm: "screen and (min-width: 480px)",
+  /* PC,Tablet(768~920px) */
+  md: "screen and (min-width: 768px)",
+  /* PC(920px~) */
+  lg: "screen and (min-width: 920px)"
+);
+
+@mixin responsive-font($size) {
+  @media #{map-get($breakpoint, $size)} {
+    body{
+      @if $size == sm {
+        font-size: 18px;
+      } @else if $size == md {
+        font-sieze: 20px;
+      } @else {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+/*
+  mixin: デバイス別のcontainer 
+  引数
+    $size: ブレイクポイント
+*/
+@mixin container-by-devise($size) {
+  @media #{map-get($breakpoint, $size)} {
+    .container {
+      @if $size == sm {
+        width: 80%;
+      } @else if $size == md {
+        width: 70%;
+      } @else {
+        width: 60%;
+      }
+      margin: auto;
+      padding-top: 85px;
+    };
+  }
+};
+
+/*
+.container {
+  width: 80%;
+  margin: 1em auto;
+}
+@include container-by-devise(sm);
+@include container-by-devise(md);
+@include container-by-devise(lg);
+
+.row {
+}
+
+.row-content {
+  width: 100%;
+  margin: 1em auto;
+}
+
+.none-style-anker {
+  text-decoration: none;
+  &:link{
+    color: #000;
+  }
+  &:visited{
+    color: #000;
+  }
+}
+*/

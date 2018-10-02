@@ -1,0 +1,74 @@
+/*
+  TopページのCSS
+*/
+
+@import './common_layout.scss';
+
+/*
+  下線を引いた文字スタイルを適用するmixin 
+  引数
+    $color: 下線の色
+*/
+@mixin btm-line($color: #0089FF) {
+  position: relative;
+  display: inline-block;
+  
+  &:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 5px;
+    left: 0;
+    bottom: -1px;
+    background: $color;
+  }
+}
+
+/*
+  mixin: カードのサイズを調整する
+  引数
+    $size: カードのサイズ(ブレイクポイントで指定する)
+*/
+@mixin card-size-by-devise($size) {
+  @media #{map-get($breakpoint, $size)} {
+    @if $size == sm {
+      width: 80%;
+    } @else if $size == md {
+      width: 80%;
+    } @else {
+      width: 80%;
+    }
+  }
+};
+
+.original-title {
+  margin: 0 0 auto 0;
+  @include btm-line(#0089FF);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: solid;
+  margin: 1em auto;
+  @include card-size-by-devise(sm);
+  @include card-size-by-devise(md);
+  @include card-size-by-devise(lg);
+}
+
+.art-date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #0089FF;
+  color: #fff;
+  margin: 0;
+  padding: 0 0.5em;
+}
+
+.card-title {
+  font-size: 1.15em;
+  font-weight: bold;
+  padding-left: 4px;
+}

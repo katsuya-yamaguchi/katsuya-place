@@ -1,0 +1,117 @@
+/*
+  headerのCSS
+*/
+
+.kp-menu {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 0 0.5em;
+}
+
+.kp-menu-modal {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  width: 80%;
+  height: 80%;
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em;
+  border: solid;
+  border-width: 0.3em;
+  z-index: 3;
+}
+
+.kp-menu-modal-bg {
+  z-index: 2;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 130%;
+  height: 130%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.kp-header-menu-item {
+  margin: auto;
+}
+
+.kp-header-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.kp-header-menu {
+  display: none;
+}
+
+.kp-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.kp-header-title {
+  font-size: 1.15em;
+  margin: auto auto auto 0;
+  padding-left: 0.5em;
+  align-items: center;
+}
+
+/* PC表示で使用する */
+@media screen and (min-width: 960px){
+  .kp-menu {
+    display: none;
+  }
+
+  .kp-header-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+    align-items: center;
+  }
+  .kp-header-menu-item {
+    padding: 0 0.5em;
+  }
+  .kp-header-link {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: #000;
+      transform: scale(0, 1);
+    }
+    
+    &:hover:after {
+      transform-origin: left top;
+      transform: scale(1, 1);
+      transition: transform .3s;
+    }
+  }
+
+  .kp-font-style {
+    font-size: 1.5em;
+  }
+}
