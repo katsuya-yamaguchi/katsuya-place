@@ -23,11 +23,11 @@
   font-size: 2em;
   border: solid;
   border-width: 0.3em;
-  z-index: 3;
+  z-index: 30;
 }
 
 .kp-menu-modal-bg {
-  z-index: 2;
+  z-index: 20;
   display: none;
   position: fixed;
   top: 0;
@@ -61,7 +61,7 @@
   background: #fff;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
 }
 
 .kp-header-title {
