@@ -3,7 +3,8 @@ const path = require('path')
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    application: path.resolve(__dirname, '../src/javascripts/modal_menu.jsx'),
+    modal: path.resolve(__dirname, '../src/javascripts/modal_menu.jsx'),
+    swipe: path.resolve(__dirname, '../src/javascripts/swipe.jsx'),
   },
   output: {
     path: path.resolve(__dirname, '../../assets/javascripts'),
