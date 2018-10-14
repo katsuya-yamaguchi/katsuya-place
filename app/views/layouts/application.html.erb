@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Istok+Web:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= yield :swiper_css %>
   </head>
 
   <body>
@@ -32,6 +33,8 @@
       <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">CATEGORY</a></li>
       <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">ABOUT</a></li>
     </div>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'modal', 'data-turbolinks-track': 'reload' %>
+    <%= yield :swipe_js %>
   </body>
 </html>

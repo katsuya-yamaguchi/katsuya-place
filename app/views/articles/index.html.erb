@@ -1,3 +1,7 @@
+<%= content_for :swiper_css do %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="row-content">
@@ -5,11 +9,27 @@
     </div>
 
     <div class="row-content">
-      <div class="card">
-        <p class="art-date">2018/10/02</p>
-        <%= image_tag 'sample.jpg', width: '100%', height: '30%' %>
-        <h2 class="card-title">はじめて作るRailsアプリケーション</h2>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <p class="art-date">2018/10/02</p>
+            <%= image_tag 'sample.jpg', width: '100%', height: '30%', class: 'famous-img' %>
+            <h2 class="card-title over-title white-text">はじめて作るRailsアプリケーション</h2>
+          </div>
+
+          <div class="swiper-slide">
+            <p class="art-date">2018/10/02</p>
+            <%= image_tag 'sample.jpg', width: '100%', height: '30%' %>
+            <h2 class="card-title over-title white-text">Railsアプリケーション</h2>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
+
     </div>
   </div>
 
@@ -20,7 +40,7 @@
 
     <div class="row-content">
       <% (1..5).each do |n| %>
-        <a href="#" class="none-style-anker">
+        <a href="/articles/<%= n %>" class="none-style-anker">
           <div class="card">
             <p class="art-date">2018/10/02</p>
             <%= image_tag 'sample.jpg', width: '100%', height: '30%' %>
@@ -32,3 +52,7 @@
   </div>
   
 </div>
+
+<% content_for :swipe_js do%>
+  <%= javascript_include_tag 'swipe', 'data-turbolinks-track': 'reload' %>
+<% end %>

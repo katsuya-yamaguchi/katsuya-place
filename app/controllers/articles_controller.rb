@@ -7,6 +7,11 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  # GET /articles/:id
+  def article
+    render 'articles'
+  end
+
   # GET /articles/1
   # GET /articles/1.json
   def show
