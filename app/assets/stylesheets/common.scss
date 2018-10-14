@@ -18,6 +18,16 @@ body {
 @include container-by-devise(md);
 @include container-by-devise(lg);
 
+.article-container {
+  width: 90%;
+  margin: 1em auto;
+  padding-top: 85px;
+}
+
+.article-row {
+  width: 100%;
+}
+
 .row {
   margin-bottom: 5em;
 }
