@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   root 'articles#index'
   devise_for :admin_users
   resources :categories
-  resources :articles, only: [:index]
-  get '/articles/:id', to: 'articles#article'
+  resources :articles, only: [:index, :show]
 
   resources :admin_users do
     resources :new_article, only: [:index, :create]
