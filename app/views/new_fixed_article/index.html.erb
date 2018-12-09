@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="side-menu">
+    <%= render 'layouts/admin_common' %>
+
+    <div class="tab-content new-fixed-article-content">
+      <h2>新規固定記事</h2>
+      <div class="row">
+        <form action="#" method="post">
+          <label class="label label-font" for="title">タイトル</label>
+          <input class="input input-row input-bd" type="text" id="title" placeholder="タイトルを入力して下さい">
+
+          <label class="label label-font" for="url">URL</label>
+          <input class="input input-row input-bd" type="text" id="url" placeholder="URLを入力して下さい">
+
+          <label class="label label-font" for="meta-descriptiton">メタディスクプリション</label>
+          <textarea class="input input-bd" id="meta-descriptiton" rows="10" placeholder="メタディスクプリションを120文字以内で入力して下さい"></textarea>
+
+          <label class="label label-font" for="keywords">キーワード</label>
+          <input class="input input-row input-bd" type="text" id="keywords" placeholder="キーワードを3つまで入力して下さい">
+
+          <label class="label label-font" for="category">カテゴリ</label>
+          <input class="input input-row input-bd" type="text" id="category" placeholder="カテゴリを入力して下さい">
+
+          <label class="label label-font" for="article">記事</label>
+          <textarea class="input input-bd" id="article" rows="100" placeholder="メタディスクプリションを120文字以内で入力して下さい"></textarea>
+
+          <button type="submit" class="button">投稿</button>
+          <button type="submit" class="button">保存</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

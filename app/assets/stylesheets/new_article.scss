@@ -1,3 +1,35 @@
 // Place all the styles related to the newArticle controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.input {
+  display: block;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  margin-top: 1em;
+}
+
+.label-font {
+  font-weight: bold;
+}
+
+.input-bd {
+  border: solid;
+}
+
+.input-row {
+  height: 3em;
+}
+
+.button {
+  background-color: transparent;
+  width: 100px;
+  height: 50px;
+  border: solid;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 1em;
+}
