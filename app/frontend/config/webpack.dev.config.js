@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     modal: path.resolve(__dirname, '../src/javascripts/modal_menu.jsx'),
     swipe: path.resolve(__dirname, '../src/javascripts/swipe.jsx'),
+    admin: path.resolve(__dirname, '../src/javascripts/admin.jsx'),
   },
   output: {
     path: path.resolve(__dirname, '../../assets/javascripts'),
