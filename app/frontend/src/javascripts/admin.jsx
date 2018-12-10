@@ -10,7 +10,6 @@
 let transition = (e) => {
   let dest = e.target.getAttribute('id').replace(/-/g, '_')
   if(dest){
-    console.log('./' + dest)
     window.location.href = './' + dest
   }
 }
