@@ -4,7 +4,6 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
-    @media = Medium.all
   end
 
   # GET /media/1
