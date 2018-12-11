@@ -10,7 +10,11 @@
 let changeTab = () => {
   let path = location.pathname
   let pathArr = path.split('/')
-  let currentPage = pathArr[pathArr.length - 1].replace(/_/g, '-')
+  if(pathArr[pathArr.length - 2] == 'media'){
+    var currentPage = pathArr[pathArr.length - 2]
+  }else{
+    var currentPage = pathArr[pathArr.length - 1].replace(/_/g, '-')
+  }
   let el = document.getElementById(currentPage)
   el.setAttribute('checked', true)
 }
