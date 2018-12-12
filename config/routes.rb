@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :fixed_article, only: [:index, :show, :create, :update]
     resources :media, only: [:index, :show, :patch, :destroy]
     namespace :media do
-      get '/upload', to: 'media#show'
-      post '/upload', to: 'media#create'
+      get '/upload', to: '#index_upload'
+      post '/upload', to: '#create_upload'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
