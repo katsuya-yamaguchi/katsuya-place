@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'articles#index'
-  devise_for :admin_users
   resources :categories
   resources :articles, only: [:index, :show]
 
