@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :admin_users do
     resources :new_article, only: [:index, :create]
     resources :new_fixed_article, only: [:index, :create]
-    resources :articles, only: [:index, :show, :create, :patch]
+    resources :articles, only: [:index, :show, :create, :patch], controller: 'admin_article'
     resources :fixed_article, only: [:index, :show, :create, :update]
 
     get '/media/upload', to: 'media#index_upload'
