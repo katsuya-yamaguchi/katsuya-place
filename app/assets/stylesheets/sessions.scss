@@ -1,3 +1,24 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin input-common__signin(){
+  display: block;
+  width: 100%;
+  border-style: none none solid none;
+  height: 3em;
+  font-size: 1em;
+}
+
+.input-username {
+  margin: auto auto 1em auto;
+  @include input-common__signin();
+}
+
+.input-password {
+  @include input-common__signin();
+}
+
+input::-webkit-input-placeholder {
+  font-size: 1.5em;
+  font-family: 'Istok Web', sans-serif;
+}
