@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="side-menu">
+    <%= render 'layouts/admin_common' %>
+
+    <div class="tab-content media-content">
+      <h2>メディア</h2>
+      <ul class="breadcrumb">
+        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <a href="../media" itemprop="url">
+            <span itemprop="title">media</span>
+          </a>
+        </li>
+        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <span itemprop="title">upload</span>
+        </li>
+      </ul>
+      <%= image_tag 'sample.jpg', width: '100%', height: '30%' %>
+      <button type="submit" class="button-upload">アップロード</button>
+      <div class="row">
+        <form action="#" method="post">
+          <label class="label label-font" for="title">ファイル名</label>
+          <input class="input input-row input-bd" type="text" id="title" placeholder="ファイル名を入力して下さい">
+          <button type="submit" class="button-upload">保存</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
