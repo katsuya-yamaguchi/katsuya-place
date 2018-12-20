@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     post '/media/upload', to: 'media#create_upload'
     resources :media, only: [:index, :show, :patch, :destroy]
   end
+
+  get '/login', to: 'sessions#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
