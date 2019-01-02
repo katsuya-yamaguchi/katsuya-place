@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AdminUser, type: :model do
   describe 'validation' do
     let(:admin_user){
-      AdminUser.new(email: 'sample@sample.com', password_digest: '123456789')
+      AdminUser.new(email: 'sample@sample.com', password: '123456789', password_confirmation: '123456789')
     }
 
     it 'should be valid.' do
@@ -13,13 +13,6 @@ RSpec.describe AdminUser, type: :model do
     context 'when the name does exist,' do
       it 'validation success.' do
         admin_user.email = 'sample@sample.com'
-        expect(admin_user.valid?).to equal(true)
-      end
-    end
-
-    context 'when the password_digest does exist,' do
-      it 'validation success.' do
-        admin_user.password_digest = '12345678'
         expect(admin_user.valid?).to equal(true)
       end
     end
