@@ -16,7 +16,8 @@ namespace :admin_user_management do
       created_at: Time.new,
       updated_at: Time.new,
       email: ENV['ADMIN_EMAIL'],
-      password_digest: ENV['ADMIN_PASSWORD']
+      password: ENV['ADMIN_PASSWORD'],
+      password_confirmation: ENV['ADMIN_PASSWORD']
     }
 
     user = AdminUser.new(user_params);

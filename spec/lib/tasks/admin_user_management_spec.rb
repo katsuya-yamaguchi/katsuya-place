@@ -24,7 +24,8 @@ describe ':admin_user_management' do
         created_at: Time.new,
         updated_at: Time.new,
         email: 'admin@admin.com',
-        password_digest: '123456789'
+        password: '123456789',
+        password_confirmation: '123456789'
       }
       user = AdminUser.new(user_params);
       user.save!
