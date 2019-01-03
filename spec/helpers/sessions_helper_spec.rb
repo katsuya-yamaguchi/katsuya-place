@@ -1,15 +1,27 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the SessionsHelper. For example:
-#
-# describe SessionsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe SessionsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#AdminUser.digest' do
+    it 'successful generation of token.' do
+      sample_text = '123456789'
+      expect(AdminUser.digest(sample_text)).not_to eq nil
+    end
+  end
+
+  describe '#remember' do
+    it 'update of token succeeds.' do
+      user_params = {
+        id: 1,
+        created_at: Time.new,
+        updated_at: Time.new,
+        email: 'admin@admin.com',
+        password: '123456789',
+        password_confirmation: '123456789',
+        remember_digest: 'aaaa'
+      }
+      user = AdminUser.new(user_params);
+      user.remember
+      expect(user.remember_digest).not_to eq 'aaaa'
+    end
+  end
 end
