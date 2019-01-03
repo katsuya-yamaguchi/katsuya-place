@@ -1,4 +1,6 @@
 class MediaController < ApplicationController
+  before_action :check_login_status, only: [:index, :create]
+
   # GET /media
   def index
   end
@@ -14,4 +16,9 @@ class MediaController < ApplicationController
   # POST /media/upload
   def create_upload
   end
+
+  private
+    def check_login_status
+      logged_in?
+    end
 end

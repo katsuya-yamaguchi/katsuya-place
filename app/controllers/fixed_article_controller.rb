@@ -1,4 +1,6 @@
 class FixedArticleController < ApplicationController
+  before_action :check_login_status, only: [:index, :create]
+
   def index
   end
 
@@ -10,4 +12,9 @@ class FixedArticleController < ApplicationController
 
   def update
   end
+
+  private
+    def check_login_status
+      logged_in?
+    end
 end
