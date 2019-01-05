@@ -11,7 +11,6 @@ describe ':admin_user_management' do
 
   describe 'task :add_user' do
     it 'is a succeess thad the user was added.' do
-  
       # 事前に環境変数ADMIN_PASSWORDを設定しておく。
       expect{ @rake['admin_user_management:add_user'].invoke }.to change{ AdminUser.count }.by(1)
     end
