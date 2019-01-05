@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:sessions][:password])
       session[:admin_user_id] = user.id
+      remember user
       redirect_to admin_user_new_article_index_path(admin_user_id: session[:admin_user_id])
     else
       flash.now[:danger] = 'email or password is invalid.'
