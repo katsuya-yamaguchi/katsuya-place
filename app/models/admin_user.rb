@@ -27,4 +27,10 @@ class AdminUser < ApplicationRecord
     self.remember_token = AdminUser.new_token
     update_attribute(:remember_digest, AdminUser.digest(remember_token))
   end
+
+  # トークンとダイジェストが一致したらtrueを返す
+  def authenticated?(remember_token)
+    ## remember_tokenをハッシュ化したものがremember_digestと一致したらtrueを返す
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
 end
