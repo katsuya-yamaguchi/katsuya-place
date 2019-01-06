@@ -57,4 +57,13 @@ RSpec.describe SessionsHelper, type: :helper do
       expect(cookies[:remember_token]).to eq nil
     end
   end
+
+  describe '#log_out' do
+    it '@current_user is nil.' do
+      user.save!
+      remember user
+      log_out
+      expect(@current_user).to eq nil
+    end
+  end
 end
