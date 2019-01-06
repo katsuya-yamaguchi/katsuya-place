@@ -25,4 +25,26 @@ RSpec.describe SessionsHelper, type: :helper do
       expect(cookies[:remember_token]).not_to eq nil
     end
   end
+
+  describe '#current_user' do
+    context 'when user_id is set for session,' do
+      it 'current_user is set.' do
+        user
+        user.save!
+        session[:user_id] = user.id
+        current_user
+        expect(@current_user).not_to eq nil
+      end
+    end
+
+    context 'when user_id is not set for session,' do
+      it 'current_user is set.' do
+        user
+        user.save!
+        remember user
+        current_user
+        expect(@current_user).not_to eq nil
+      end
+    end
+  end
 end

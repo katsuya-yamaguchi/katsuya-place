@@ -1,7 +1,16 @@
 module SessionsHelper
+  # 記憶トークンcookieに対応するユーザーを返す
   def current_user
-    if session[:admin_user_id]
-      @current_user ||= AdminUser.find_by(id: session[:admin_user_id])
+    ## 一時セッションのチェック
+    if user_id = session[:user_id]
+      @current_user ||= AdminUser.find_by(id: user_id)
+    ## 永続的セッションのチェック
+    elsif user_id = cookies.signed[:user_id]
+      user = AdminUser.find_by(id: user_id)
+      if user && user.authenticated?(cookies[:remember_token])
+        session[:user_id] = user.id
+        @current_user = user
+      end
     end
   end
 
