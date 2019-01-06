@@ -15,6 +15,7 @@
 }
 
 .input-password {
+  margin: auto auto 1em auto;
   @include input-common__signin();
 }
 
@@ -26,4 +27,8 @@ input::-webkit-input-placeholder {
 .err-msg {
   background: #ffb6c1;
   color: #dc143c;
+}
+
+.input-checkbox {
+  display: block;
 }
