@@ -7,6 +7,7 @@ module SessionsHelper
     ## 永続的セッションのチェック
     elsif user_id = cookies.signed[:user_id]
       user = AdminUser.find_by(id: user_id)
+      ## 記憶トークンが正しいかチェック
       if user && user.authenticated?(cookies[:remember_token])
         session[:user_id] = user.id
         @current_user = user
