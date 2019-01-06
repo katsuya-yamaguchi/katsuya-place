@@ -47,4 +47,14 @@ RSpec.describe SessionsHelper, type: :helper do
       end
     end
   end
+
+  describe '#forget' do
+    it 'the cookie is deleted.' do
+      user.save!
+      remember user
+      forget user
+      expect(cookies[:user_id]).to eq nil
+      expect(cookies[:remember_token]).to eq nil
+    end
+  end
 end
