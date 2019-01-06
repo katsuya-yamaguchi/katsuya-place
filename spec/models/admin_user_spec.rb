@@ -75,4 +75,12 @@ RSpec.describe AdminUser, type: :model do
       end
     end
   end
+
+  describe '#forget' do
+    it 'remember_digest is nil.' do
+      user.save!
+      user.forget
+      expect(user.remember_digest).to eq nil
+    end
+  end
 end

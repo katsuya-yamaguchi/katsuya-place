@@ -33,4 +33,9 @@ class AdminUser < ApplicationRecord
     ## remember_tokenをハッシュ化したものがremember_digestと一致したらtrueを返す
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+
+  # 記憶トークンの初期化
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end
