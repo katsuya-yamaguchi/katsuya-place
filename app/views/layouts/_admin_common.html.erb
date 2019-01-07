@@ -8,6 +8,11 @@
 <label class="tab-item   tab-article tab-item_bd-b" for="articles">記事</label>
 <input class="tab-menu" name="menu" id="fixed-article" type="radio" onclick="location.href='./fixed_article'">
 <label class="tab-item tab-fixed-article tab-item_bd-b" for="fixed-article">固定記事</label>
+<a href="<%= login_path %>" data-method="delete" rel="nofollow">
+  <button class="logout__button">
+    ログアウト
+  </button>
+</a>
 
 <!--div class="tab-content article-content">
   <h2>Article</h2>
