@@ -5,28 +5,32 @@
     <div class="tab-content new-article-content">
       <h2>新規投稿</h2>
       <div class="row">
-        <form action="#" method="post">
+        <%= form_for :articles, url: admin_user_new_fixed_article_index_path, html: {method: 'post'} do |f| %>
           <label class="label label-font" for="title">タイトル</label>
-          <input class="input input-row input-bd" type="text" id="title" placeholder="タイトルを入力して下さい">
+          <%= f.text_field :title, class: 'input input-row input-bd', id: 'title', placeholder: 'タイトルを入力して下さい' %>
 
           <label class="label label-font" for="url">URL</label>
-          <input class="input input-row input-bd" type="text" id="url" placeholder="URLを入力して下さい">
+          <%= f.text_field :url, class: 'input input-row input-bd', id: 'url', placeholder: 'URLを入力して下さい' %>
 
           <label class="label label-font" for="meta-descriptiton">メタディスクプリション</label>
-          <textarea class="input input-bd" id="meta-descriptiton" rows="10" placeholder="メタディスクプリションを120文字以内で入力して下さい"></textarea>
+          <%= f.text_area :meta_descritption, class: 'input input-bd', id: 'meta-descritption', size: '40x10', placeholder: 'メタディスクプリションを120文字以内で入力して下さい' %>
 
           <label class="label label-font" for="keywords">キーワード</label>
-          <input class="input input-row input-bd" type="text" id="keywords" placeholder="キーワードを3つまで入力して下さい">
+          <%= f.text_field :keywords, class: 'input input-row input-bd', id: 'keywords', placeholder: 'キーワードを3つまで入力して下さい' %>
 
           <label class="label label-font" for="category">カテゴリ</label>
-          <input class="input input-row input-bd" type="text" id="category" placeholder="カテゴリを入力して下さい">
+          <%= f.text_field :category, class: 'input input-row input-bd', id: 'category', placeholder: 'カテゴリを入力して下さい' %>
 
           <label class="label label-font" for="article">記事</label>
-          <textarea class="input input-bd" id="article" rows="100" placeholder="メタディスクプリションを120文字以内で入力して下さい"></textarea>
+          <%= f.text_area :contents, class: 'input input-bd', id: 'contents', size: '40x120' %>
 
-          <button type="submit" class="button">投稿</button>
-          <button type="submit" class="button">保存</button>
-        </form>
+          <%= f.label :remember_me, class: 'input-checkbox' do %>
+            <%= f.check_box :remember_me %>
+            <span>下書きとして保存する</span>
+          <% end %>
+
+          <%= f.submit :save, class: 'button' %>
+        <% end %>
       </div>
     </div>
   </div>
