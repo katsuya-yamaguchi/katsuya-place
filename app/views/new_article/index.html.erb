@@ -26,6 +26,11 @@
             <span>下書きとして保存する</span>
           <% end %>
 
+          <%= f.label :fixed_status, class: 'input-checkbox' do %>
+            <%= f.check_box :fixed_status %>
+            <span>固定記事として保存する</span>
+          <% end %>
+
           <%= f.submit :publish, class: 'button' %>
         <% end %>
       </div>
