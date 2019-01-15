@@ -26,18 +26,17 @@ RSpec.describe NewArticleController, type: :controller do
         meta_description: 'sample',
         content_text: 'sample',
         category_name: 'rails',
+        open_status: 0,
+        fixed_status: 0
       }
     }
 
-    context 'open_statusが1のとき,' do
-      it '記事の作成に成功する' do
-        article_params.store('open_status', 0)
-        login
-        post :create, params:{ articles: article_params, admin_user_id: 1}
+    it '記事の作成に成功する' do
+      login
+      post :create, params:{ articles: article_params, admin_user_id: 1}
 
-        expect(Category.find(1)).not_to eq nil
-        expect(Article.find(1)).not_to eq nil
-      end
+      expect(Category.find(1)).not_to eq nil
+      expect(Article.find(1)).not_to eq nil
     end
   end
 end
