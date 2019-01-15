@@ -1,7 +1,5 @@
 <input class="tab-menu" name="menu" id="new-article" type="radio" onclick="location.href='./new_article'">
 <label class="tab-item tab-new-article tab-item_bd-b" for="new-article" >新規作成</label>
-<input class="tab-menu" name="menu" id="new-fixed-article" type="radio" onclick="location.href='./new_fixed_article'">
-<label class="tab-item  tab-new-fixed-article tab-item_bd-b" for="new-fixed-article" >新規固定記事</label>
 <input class="tab-menu" name="menu" id="media" type="radio" onclick="location.href='./media'">
 <label class="tab-item  tab-media tab-item_bd-b" for="media">メディア</label>
 <input class="tab-menu" name="menu" id="articles" type="radio" onclick="location.href='./articles'">
@@ -13,13 +11,6 @@
     ログアウト
   </button>
 </a>
-
-<!--div class="tab-content article-content">
-  <h2>Article</h2>
-</div-->
-<div class="tab-content fixed-article-content">
-  <h2>Fixed Article</h2>
-</div>
 
 <%= content_for :admin_js do %>
   <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
