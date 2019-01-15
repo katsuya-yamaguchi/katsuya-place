@@ -5,7 +5,8 @@ module ArticlesHelper
       :content_url,
       :meta_description,
       :content_text,
-      :open_status
+      :open_status,
+      :fixed_status
     )
   end
 
@@ -14,9 +15,5 @@ module ArticlesHelper
   end
 
   def create_article
-    category = Category.new(category_params)
-    category.save!
-    article = category.article.build(article_params)
-    article.save!
   end
 end
