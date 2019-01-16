@@ -5,7 +5,7 @@
     <div class="tab-content article-content">
       <h2><%= @article[:content_title] %></h2>
       <div class="row">
-        <%= form_for :articles, url: admin_user_new_article_index_path, html: {method: 'post'} do |f| %>
+        <%= form_for :articles, url: admin_user_articles_path, html: {method: 'post'} do |f| %>
           <label class="label label-font" for="title">タイトル</label>
           <%= f.text_field :content_title, class: 'input input-row input-bd', id: 'title', placeholder: 'タイトルを入力して下さい', value: @article[:content_title] %>
 
