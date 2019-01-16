@@ -11,7 +11,7 @@
 
       <div class="row-content">
         <% @articles.each do |article| %>
-          <a href="./articles<%= article[:content_url] %>" class="none-style-anker">
+          <a href="./articles/<%= article[:id] %>" class="none-style-anker">
             <div class="card">
               <p class="art-date"><%= article[:updated_at].strftime('%Y/%m/%d %H:%M:%S') %></p>
               <%= image_tag 'sample.jpg', width: '100%', height: '30%' %>
