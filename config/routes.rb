@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :articles, only: [:index], controller: 'admin_article'
     get '/articles/:article_id', to: 'admin_article#show'
     post '/articles/:article_id', to: 'admin_article#edit'
-    resources :fixed_article, only: [:index, :show, :create, :update]
 
     get '/media/upload', to: 'media#index_upload'
     post '/media/upload', to: 'media#create_upload'
