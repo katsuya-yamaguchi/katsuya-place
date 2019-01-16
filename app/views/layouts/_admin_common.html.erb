@@ -1,10 +1,10 @@
-<input class="tab-menu" name="menu" id="new-article" type="radio" onclick="location.href='./new_article'">
+<input class="tab-menu" name="menu" id="new-article" type="radio" onclick="location.href='<%= admin_user_new_article_index_path %>'">
 <label class="tab-item tab-new-article tab-item_bd-b" for="new-article" >新規作成</label>
-<input class="tab-menu" name="menu" id="media" type="radio" onclick="location.href='./media'">
+<input class="tab-menu" name="menu" id="media" type="radio" onclick="location.href='<%= admin_user_media_path %>'">
 <label class="tab-item  tab-media tab-item_bd-b" for="media">メディア</label>
-<input class="tab-menu" name="menu" id="articles" type="radio" onclick="location.href='./articles'">
+<input class="tab-menu" name="menu" id="articles" type="radio" onclick="location.href='<%= admin_user_articles_path %>'">
 <label class="tab-item   tab-article tab-item_bd-b" for="articles">記事</label>
-<input class="tab-menu" name="menu" id="fixed-article" type="radio" onclick="location.href='./fixed_article'">
+<input class="tab-menu" name="menu" id="fixed-article" type="radio" onclick="location.href='<%= admin_user_fixed_article_index_path %>'">
 <label class="tab-item tab-fixed-article tab-item_bd-b" for="fixed-article">固定記事</label>
 <a href="<%= login_path %>" data-method="delete" rel="nofollow">
   <button class="logout__button">
