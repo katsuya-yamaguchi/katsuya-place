@@ -27,7 +27,8 @@ RSpec.describe AdminArticleController, type: :controller do
           meta_description: x,
           content_text: x,
           open_status: 0,
-          fixed_status: 0
+          fixed_status: 0,
+          famous_status: 0
         }
         category = Category.create(category_name: x)
         article = category.article.create(article_params)
@@ -68,7 +69,8 @@ RSpec.describe AdminArticleController, type: :controller do
           meta_description: x,
           content_text: x,
           open_status: 0,
-          fixed_status: 0
+          fixed_status: 0,
+          famous_status: 0
         }
         category = Category.create(category_name: x)
         article = category.article.create(article_params)
@@ -109,7 +111,8 @@ RSpec.describe AdminArticleController, type: :controller do
         meta_description: 'テスト用のディスクリプションです。',
         content_text: 'テスト用のコンテンツテキストです。',
         open_status: 0,
-        fixed_status: 0
+        fixed_status: 0,
+        famous_status: 0
       }
       category = Category.create(category_name: 'rails')
       article = category.article.create(article_params)
@@ -123,7 +126,8 @@ RSpec.describe AdminArticleController, type: :controller do
         content_text: 'sample',
         category_name: 'sample',
         open_status: 0,
-        fixed_status: 0
+        fixed_status: 0,
+        famous_status: 0
       }
     }
 

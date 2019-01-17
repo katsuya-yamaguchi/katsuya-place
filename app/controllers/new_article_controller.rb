@@ -23,7 +23,8 @@ class NewArticleController < ApplicationController
         :meta_description,
         :content_text,
         :open_status,
-        :fixed_status
+        :fixed_status,
+        :famous_status
       )
     end
 

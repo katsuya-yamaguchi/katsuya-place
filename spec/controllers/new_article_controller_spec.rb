@@ -27,7 +27,8 @@ RSpec.describe NewArticleController, type: :controller do
         content_text: 'sample',
         category_name: 'rails',
         open_status: 0,
-        fixed_status: 0
+        fixed_status: 0,
+        famous_status: 0
       }
     }
 
