@@ -3,10 +3,7 @@ class MediaController < ApplicationController
 
   # GET /media
   def index
-  end
-
-  # GET /media/1
-  def show
+    @medium = Medium.order(:id)
   end
 
   # GET /media/upload
@@ -17,6 +14,7 @@ class MediaController < ApplicationController
   def create_upload
     media = Medium.new(media_params)
     media.save!
+    redirect_to admin_user_media_upload_path
   end
 
   private
@@ -25,6 +23,6 @@ class MediaController < ApplicationController
     end
 
     def media_params
-      params.require(:media).permit(:media_file_name)
+      params.require(:media).permit(:avatar)
     end
 end

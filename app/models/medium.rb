@@ -1,3 +1,3 @@
 class Medium < ApplicationRecord
-  has_one_attached :media_file_name
+  has_one_attached :avatar
 end

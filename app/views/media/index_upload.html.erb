@@ -17,7 +17,7 @@
       <div class="row">
         <%= form_for :media, url: admin_user_media_upload_path, html: {method: 'post'} do |f| %>
           <label class="label label-font" for="title">ファイル名</label>
-          <%= f.file_field :media_file_name, class: 'input input-row' %>
+          <%= f.file_field :avatar, class: 'input input-row' %>
           <%= f.submit :upload, class: 'button-upload' %>
         <% end %>
       </div>
