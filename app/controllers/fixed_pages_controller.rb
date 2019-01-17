@@ -1,0 +1,2 @@
+class FixedPagesController < ApplicationController
+end
