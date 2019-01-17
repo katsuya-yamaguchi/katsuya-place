@@ -15,7 +15,7 @@
           <div class="swiper-slide">
             <p class="art-date"><%= article[:updated_at].strftime('%Y/%m/%d') %></p>
             <a href="/articles<%= article[:content_url] %>">
-            <%= image_tag 'sample.jpg', width: '100%', height: '30%', class: 'famous-img' %>
+            <%= image_tag article.top_image, width: '100%', height: '30%', class: 'famous-img' %>
             </a>
             <h2 class="card-title over-title white-text"><%= article[:content_title] %></h2>
           </div>
@@ -42,7 +42,7 @@
           <div class="card">
             <p class="art-date"><%= article[:updated_at].strftime('%Y/%m/%d') %></p>
             <a href="/articles<%= article[:content_url] %>">
-            <%= image_tag 'sample.jpg', width: '100%', height: '30%' %>
+            <%= image_tag article.top_image, width: '100%', height: '30%' %>
             </a>
             <h2 class="card-title"><%= article[:content_title] %></h2>
           </div>

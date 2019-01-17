@@ -18,6 +18,10 @@ class NewArticleController < ApplicationController
     article = category.article.build(article_params)
     article.save!
 
+    if top_image = params[:articles][:top_image]
+      article.top_image.attach(top_image)
+    end
+
     redirect_to admin_user_new_article_index_path
   end
 
@@ -43,7 +47,7 @@ class NewArticleController < ApplicationController
       params.require(:articles).permit(:category_name)
     end
 
-    def media_params
-      params.require(:media).permit(:avatar)
+    def top_image_params
+      params.require(:articles).permit(:top_image)
     end
 end
