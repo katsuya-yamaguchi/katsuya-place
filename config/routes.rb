@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
     get '/media/upload', to: 'media#index_upload'
     post '/media/upload', to: 'media#create_upload'
-    resources :media, only: [:index, :show, :patch, :destroy]
+    resources :media, only: [:index, :destroy]
   end
 
   get '/login', to: 'sessions#index'
