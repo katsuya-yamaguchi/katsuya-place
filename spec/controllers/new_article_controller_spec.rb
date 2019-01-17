@@ -32,12 +32,24 @@ RSpec.describe NewArticleController, type: :controller do
       }
     }
 
-    it '記事の作成に成功する' do
-      login
-      post :create, params:{ articles: article_params, admin_user_id: 1}
+    context 'カテゴリが既に登録されている場合、' do
+      it '記事の作成に成功する' do
+        login
+        Category.create(category_name: 'rails')
+        post :create, params:{ articles: article_params, admin_user_id: 1}
 
-      expect(Category.find(1)).not_to eq nil
-      expect(Article.find(1)).not_to eq nil
+        expect(Article.exists?).to eq true
+      end
+    end
+
+    context 'カテゴリが登録されていない場合、' do
+      it '記事の作成に成功する' do
+        login
+        post :create, params:{ articles: article_params, admin_user_id: 1}
+
+        expect(Category.exists?).to eq true
+        expect(Article.exists?).to eq true
+      end
     end
   end
 end

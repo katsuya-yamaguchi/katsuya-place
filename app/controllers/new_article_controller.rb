@@ -5,9 +5,9 @@ class NewArticleController < ApplicationController
   end
 
   def create
-    if Category.where(category_name: params[:articles][:category_name])
-      category = ''
-      Category.where(category_name: params[:articles][:category_name]).each do |ct|
+    if Category.exists?(category_name: params[:articles][:category_name])
+      category = Category.where(category_name: params[:articles][:category_name])
+      category.each do |ct|
         category = ct
       end
     else
