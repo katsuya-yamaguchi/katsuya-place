@@ -6,14 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create(category_name: 'Ruby')
 
 10.times do |i|
-  Article.create(
+  category = Category.create(category_name: "#{i}番目のカテゴリ")
+  category.article.create(
     content_text: "これは、テスト用コンテンツの#{i}番目の内容です。",
     meta_description: "テストのメタディスクプリションです。(#{i})",
     content_url: "/test#{i}",
-    content_title: "タイトル #{i}",
-    categories_id: "1"
+    content_title: "タイトル #{i}"
   )
 end

@@ -16,7 +16,6 @@
 
 // .tab-menuがchecked状態の時、対応するcontentを表示させる
 #new-article:checked ~ .new-article-content,
-#new-fixed-article:checked ~ .new-fixed-article-content,
 #media:checked ~ .media-content,
 #articles:checked ~ .article-content,
 #fixed-article:checked ~ .fixed-article-content {
@@ -27,7 +26,6 @@
 
 // .tab-menuがchecked状態の時、対応するlabelのstyleを変更する
 #new-article:checked ~ .tab-new-article,
-#new-fixed-article:checked ~ .tab-new-fixed-article,
 #media:checked ~ .tab-media,
 #articles:checked ~ .tab-article,
 #fixed-article:checked ~ .tab-fixed-article{
@@ -46,4 +44,14 @@
 
 .tab-item_bd-b {
   border-bottom: solid;
+}
+
+.logout__button {
+  background-color: transparent;
+  width: 100px;
+  height: 50px;
+  border: solid;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 1em auto 1em auto;
 }

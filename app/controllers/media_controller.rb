@@ -1,10 +1,9 @@
 class MediaController < ApplicationController
+  before_action :check_login_status, only: [:index, :create]
+
   # GET /media
   def index
-  end
-
-  # GET /media/1
-  def show
+    @medium = Medium.order(:id)
   end
 
   # GET /media/upload
@@ -13,5 +12,17 @@ class MediaController < ApplicationController
 
   # POST /media/upload
   def create_upload
+    media = Medium.new(media_params)
+    media.save!
+    redirect_to admin_user_media_upload_path
   end
+
+  private
+    def check_login_status
+      logged_in?
+    end
+
+    def media_params
+      params.require(:media).permit(:avatar)
+    end
 end

@@ -5,14 +5,13 @@
     <div class="tab-content media-content">
       <h2>メディア</h2>
       <div class="row row-media">
-        <% for x in 1..7 do%>
-        <a href="/admin_users/1/media/1">
-          <%= image_tag 'sample.jpg', width: '25%', height: '30%' %>
-        </a>
+        <% @medium.each do |f| %>
+          <%= image_tag f.avatar, width: '25%', height: '30%' %>
+          <label class="label label-font"><%= f.avatar.filename %></label>
         <% end %>
       </div>
       <div class="row row-upload-button">
-        <button type="submit" class="button-upload">アップロード</button>
+        <a href='<%= admin_user_media_upload_path %>'><button type="submit" class="button-upload">アップロード</button></a>
       </div>
     </div>
   </div>

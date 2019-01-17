@@ -12,6 +12,8 @@ let changeTab = () => {
   let pathArr = path.split('/')
   if(pathArr[pathArr.length - 2] == 'media'){
     var currentPage = pathArr[pathArr.length - 2]
+  }else if(pathArr[pathArr.length - 2] == 'articles'){
+    var currentPage = pathArr[pathArr.length - 2].replace(/_/g, '-')
   }else{
     var currentPage = pathArr[pathArr.length - 1].replace(/_/g, '-')
   }
