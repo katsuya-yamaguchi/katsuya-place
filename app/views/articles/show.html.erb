@@ -4,8 +4,8 @@
     <div class="article-card">
       <p class="article-date"><%= @article[:updated_at].strftime('%Y/%m/%d') %></p>
       <h2 class="card-title"><%= @article[:content_title] %></h2>
-      <% if @article.top_image.attached? %>
-        <%= image_tag @article.top_image, width: '100%', height: '20%', class: 'famous-img' %>
+      <% if @article.medium.avatar.attached? %>
+        <%= image_tag @article.medium.avatar, width: '100%', height: '30%' %>
       <% end %>
       <div class="article-content">
         <%== @article[:content_text] %>
