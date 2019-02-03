@@ -39,7 +39,8 @@ class NewArticleController < ApplicationController
         :open_status,
         :fixed_status,
         :famous_status,
-        :top_image
+        :top_image,
+        :media_id
       )
     end
 

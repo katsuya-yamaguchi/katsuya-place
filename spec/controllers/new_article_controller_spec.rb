@@ -28,7 +28,8 @@ RSpec.describe NewArticleController, type: :controller do
         category_name: 'rails',
         open_status: 0,
         fixed_status: 0,
-        famous_status: 0
+        famous_status: 0,
+        media_id: 1
       }
     }
 
@@ -36,6 +37,8 @@ RSpec.describe NewArticleController, type: :controller do
       it '記事の作成に成功する' do
         login
         Category.create(category_name: 'rails')
+        image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
+        Medium.create(avatar: image_path)
         post :create, params:{ articles: article_params, admin_user_id: 1}
 
         expect(Article.exists?).to eq true
@@ -45,6 +48,8 @@ RSpec.describe NewArticleController, type: :controller do
     context 'カテゴリが登録されていない場合、' do
       it '記事の作成に成功する' do
         login
+        image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
+        Medium.create(avatar: image_path)
         post :create, params:{ articles: article_params, admin_user_id: 1}
 
         expect(Category.exists?).to eq true
