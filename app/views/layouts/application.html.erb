@@ -20,10 +20,9 @@
 
       <p class="kp-menu">Menu</p>
       <ul class="kp-header-menu">
-        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">PORTFOLIO</a></li>
-        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">BLOG</a></li>
-        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">CATEGORY</a></li>
-        <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">ABOUT</a></li>
+        <li class="kp-header-menu-item"><a href="/" class="kp-header-link kp-font-style">TOP</a></li>
+        <li class="kp-header-menu-item"><a href="<%= profile_path %>" class="kp-header-link kp-font-style">PROFILE</a></li>
+        <li class="kp-header-menu-item"><a href="<%= categories_path %>" class="kp-header-link kp-font-style">CATEGORY</a></li>
       </ul>
     </header>
 
@@ -31,10 +30,9 @@
 
     <div class="modal"></div>
     <div class="kp-menu-modal">
-      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">PORTFOLIO</a></li>
-      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">BLOG</a></li>
-      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">CATEGORY</a></li>
-      <li class="kp-header-menu-item"><a href="#" class="kp-header-link kp-font-style">ABOUT</a></li>
+      <li class="kp-header-menu-item"><a href="/" class="kp-header-link kp-font-style">TOP</a></li>
+      <li class="kp-header-menu-item"><a href="<%= profile_path %>" class="kp-header-link kp-font-style">PROFILE</a></li>
+      <li class="kp-header-menu-item"><a href="<%= categories_path %>" class="kp-header-link kp-font-style">CATEGORY</a></li>
     </div>
 
     <%= javascript_include_tag 'modal', 'data-turbolinks-track': 'reload' %>

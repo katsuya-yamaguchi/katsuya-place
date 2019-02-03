@@ -1,0 +1,22 @@
+<div class="article-container">
+
+  <div class="article-row">
+    <div class="article-card">
+      <p class="article-date">2019/01/18</p>
+      <h2 class="card-title">CATEGORY</h2>
+      <div class="article-content">
+
+        <div class="category-acc">
+        <% @categories.each do |category| %>
+          <input type="checkbox" id="label1" class="category-acc__input"/>
+          <label class="category-acc__label" for="label1"><%= category %></label>
+
+          <div class="category-acc__content">
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

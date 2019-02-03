@@ -1,0 +1,52 @@
+.category-acc__label {
+  display: block;
+  margin: 1.5px 0;
+  padding: 13px 12px;
+  color: #ffba47;
+  font-weight: bold;
+  background: #fff2cc;
+  cursor :pointer;
+  transition: all 0.5s;
+}
+
+.category-acc__label:before {
+  content: '\f054';
+  font-family: 'FontAwesome';
+  padding-right: 8px;
+}
+
+/*ラベルホバー時*/
+.category-acc__label:hover {
+  background :#ffe9a9;
+}
+
+/*チェックは隠す*/
+.category-acc__input {
+  display: none;
+}
+
+/*中身を非表示にしておく*/
+.category-acc__content {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+/*クリックで中身表示*/
+.category-acc__input:checked + .category-acc__label + .category-acc__content {
+  height: auto;
+  padding: 5px;
+  background: #fff5eb;
+  opacity: 1;
+}
+
+.category-acc__content p {
+  margin: 15px 10px;
+}
+
+/*アイコンを入れ替える*/
+.category-acc__input:checked + .category-acc__label:before {
+  content: '\f078';
+}
