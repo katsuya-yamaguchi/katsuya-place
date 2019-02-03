@@ -62,6 +62,9 @@ RSpec.describe AdminArticleController, type: :controller do
       remember user
     }
     let(:create_articles){
+      image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
+      Medium.create(avatar: image_path)
+
       for x in 1..10 do
         article_params = {
           content_title: x,
@@ -70,7 +73,8 @@ RSpec.describe AdminArticleController, type: :controller do
           content_text: x,
           open_status: 0,
           fixed_status: 0,
-          famous_status: 0
+          famous_status: 0,
+          media_id: 1
         }
         category = Category.create(category_name: x)
         article = category.article.create(article_params)
@@ -105,6 +109,9 @@ RSpec.describe AdminArticleController, type: :controller do
     }
 
     let(:create_articles){
+      image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
+      Medium.create(avatar: image_path)
+
       article_params = {
         content_title: 'テスト用のタイトル',
         content_url: '/test',
@@ -112,7 +119,8 @@ RSpec.describe AdminArticleController, type: :controller do
         content_text: 'テスト用のコンテンツテキストです。',
         open_status: 0,
         fixed_status: 0,
-        famous_status: 0
+        famous_status: 0,
+        media_id: 1
       }
       category = Category.create(category_name: 'rails')
       article = category.article.create(article_params)
