@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'articles#index'
-  resources :categories
+  get '/categories', to: 'fixed_pages#category'
+  get '/profile', to: 'fixed_pages#profile'
   resources :articles, only: [:index, :show]
 
   resources :admin_users do
