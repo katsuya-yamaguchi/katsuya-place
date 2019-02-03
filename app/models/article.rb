@@ -3,5 +3,4 @@ class Article < ApplicationRecord
   validates :content_title, presence: true
   validates :content_url, presence: true
   validates :content_text, presence: true
-  has_one_attached :top_image
 end
