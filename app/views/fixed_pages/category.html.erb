@@ -6,15 +6,19 @@
       <h2 class="card-title">CATEGORY</h2>
       <div class="article-content">
 
-        <div class="category-acc">
         <% @categories.each do |category| %>
-          <input type="checkbox" id="label1" class="category-acc__input"/>
-          <label class="category-acc__label" for="label1"><%= category %></label>
-
-          <div class="category-acc__content">
+          <div class="accbox">
+            <label for="lable<%= category.id %>"><%= category.category_name %></label>
+            <input type="checkbox" id="lable<%= category.id %>" class="cssacc" />
+            <div class="accshow">
+              <% category.article.each do |article| %>
+                <a href="/articles<%= article.content_url %>" class="accshow__a">
+                  <p><%= article.content_title %></p>
+                </a>
+              <% end %>
+            </div>
           </div>
         <% end %>
-        </div>
       </div>
     </div>
   </div>
