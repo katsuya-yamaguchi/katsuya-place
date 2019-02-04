@@ -1,24 +1,56 @@
-# README
+# 個人用ブログサービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Railsで作成した個人用ブログサービスです。WordPressを参考に作成しています。  
+実装している機能は、以下になります。  
 
-Things you may want to cover:
+**一般機能**  
+- 記事一覧の表示  
+- 記事の詳細表示  
+- カテゴリページ  
 
-* Ruby version
+**管理機能**
+- 管理ユーザの管理
+- 新規記事投稿  
+  - 人気記事機能  
+  - 下書き機能  
+- 画像アップロード  
+- 既存記事の編集  
 
-* System dependencies
 
-* Configuration
+## Set up
+1. ライブラリ等をインストールをインストール  
 
-* Database creation
+```
+$ bundle install --path=vendor/bundle
+```
 
-* Database initialization
+2. データベースの準備と開発用データの挿入  
 
-* How to run the test suite
+```
+$ bundle exec rails db:migrate
+$ bundle exec rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. 管理者ユーザーの作成  
 
-* Deployment instructions
+```
+$ export ADMIN_EMAIL='[管理者ユーザーのEmailアドレスを入力して下さい]'
+$ export ADMIN_PASSWORD='[管理者ユーザーのパスワードを入力して下さい]'
+$ bundle exec rails admin_user_management:add_user
+```
+また、管理者ユーザーを削除したい場合は、以下を実行して下さい。  
 
-* ...
+```
+$ bundle exec rails admin_user_management:delete_user
+```
+
+## Environment
+
+### Database
+- sqlite  
+
+
+## How to run the test suite
+```
+$ bundle exec rspec spec/
+```
