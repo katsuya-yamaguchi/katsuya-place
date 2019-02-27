@@ -1,14 +1,9 @@
-class CreateArticles < ActiveRecord::Migration[5.2]
+class CreateCategories < ActiveRecord::Migration[5.2]
   def change
-    create_table :articles do |t|
-      t.text :content_text
-      t.text :meta_description
-      t.string :content_url, limit: 255, null: false
-      t.string :content_title, limit: 255
-      t.references :categories, foreign_key: true
-      t.references :media, foreign_key: true
+    create_table :categories do |t|
+      t.string :category_name, limit: 255, null: false
       t.timestamps
     end
-    add_index :articles, [:content_url], unique: true
+    add_index :categories, [:category_name], unique: true
   end
 end
