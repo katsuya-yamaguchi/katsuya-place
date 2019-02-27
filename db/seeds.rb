@@ -12,7 +12,6 @@ include ActionDispatch::TestProcess
 #Medium.create(avatar: image_path)
 
 # production
-image_path = File.open('../app/assets/images/sample.jpg')
 media = Medium.new()
 media.avatar.attach(io: File.open('app/assets/images/sample.jpg', filename: 'sample.jpg'))
 Medium.save!
