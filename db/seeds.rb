@@ -13,7 +13,7 @@ include ActionDispatch::TestProcess
 
 # production
 media = Medium.new()
-media.avatar.attach(io: File.open('app/assets/images/sample.jpg', filename: 'sample.jpg'))
+media.avatar.attach(image_tag('sample.jpg'))
 Medium.save!
 
 5.times do |i|
