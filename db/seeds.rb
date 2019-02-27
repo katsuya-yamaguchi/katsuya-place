@@ -9,10 +9,13 @@ include ActionDispatch::TestProcess
 
 # development
 #image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
+#Medium.create(avatar: image_path)
 
 # production
 image_path = File.open('../app/assets/images/sample.jpg')
-Medium.create(avatar: image_path)
+media = Medium.new()
+media.avatar.attach(io: File.open('app/assets/images/sample.jpg', filename: 'sample.jpg'))
+Medium.save!
 
 5.times do |i|
   category = Category.create(category_name: "#{i}番目のカテゴリ")
