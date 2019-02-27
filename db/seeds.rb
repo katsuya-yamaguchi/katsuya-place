@@ -13,8 +13,11 @@ include ActionDispatch::TestProcess
 
 # production
 media = Medium.new()
-filepath = 'storage/Xd/Po/XdPojsM2xnjPE2KuQgiTgCP9'
-media.avatar.attach(io: File.open(filepath), filename: File.basename('sample.jpg'))
+filename = 'sample.jpg'
+filepath = Rails.root.join('app/assets/images', filename)
+File.open(filepath) do |f|
+  media.avatar.attach(io: f, filename: 'sample.jpg')
+end
 Medium.save!
 
 5.times do |i|
