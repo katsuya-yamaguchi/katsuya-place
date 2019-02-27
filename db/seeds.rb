@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 include ActionDispatch::TestProcess
-include ActionView::Helpers::AssetTagHelper
 
 # development
 #image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
@@ -14,7 +13,8 @@ include ActionView::Helpers::AssetTagHelper
 
 # production
 media = Medium.new()
-media.avatar.attach(image_tag('sample.jpg'))
+filepath = Rails.root.join('app/assets/images', 'sample.jpg')
+media.avatar.attach(io: File.open(filepath), filename: File.basename(filepath))
 Medium.save!
 
 5.times do |i|
