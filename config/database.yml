@@ -23,6 +23,4 @@ test:
 production:
   database: postgresql
   encode: utf8
-  host:
-  username:
-  password:
+  pool: 5
