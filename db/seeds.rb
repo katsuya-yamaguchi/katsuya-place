@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 include ActionDispatch::TestProcess
 
-image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
+# development
+#image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
+
+# production
+image_path = File.join(Rails.root, 'app/assets/images/sample.jpg'))
 Medium.create(avatar: image_path)
 
 5.times do |i|
