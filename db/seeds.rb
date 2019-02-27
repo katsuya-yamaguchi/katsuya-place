@@ -14,7 +14,7 @@ include ActionDispatch::TestProcess
 # production
 media = Medium.new()
 filename = 'sample.jpg'
-filepath = Rails.root.join('app/assets/images', filename)
+filepath = Rails.root.join('assets/images', filename)
 File.open(filepath) do |f|
   media.avatar.attach(io: f, filename: 'sample.jpg')
 end
