@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 include ActionDispatch::TestProcess
+include ActionView::Helpers::AssetTagHelper
 
 # development
 #image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
