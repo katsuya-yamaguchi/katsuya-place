@@ -4,7 +4,7 @@ ENV APP_ROOT /katsuya-place
 WORKDIR $APP_ROOT
 
 RUN apt-get update && \
-    apt-get install -y sqlite3 \
+    apt-get install -y mysql-client \
                        --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
