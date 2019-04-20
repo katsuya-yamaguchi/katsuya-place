@@ -7,9 +7,9 @@ jobs:
       - run:
           command: docker-compose build
 
-      - run: docker-cmpose run --rm rails db:create
-      - run: docker-cmpose run --rm rails db:migrate
-      - run: docker-cmpose run --rm rails admin_user_management:add_user
+      - run: docker-compose run --rm rails db:create
+      - run: docker-compose run --rm rails db:migrate
+      - run: docker-compose run --rm rails admin_user_management:add_user
 
       - run:
           name: run tests
