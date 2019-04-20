@@ -1,4 +1,4 @@
-FROM ruby:2.4.1
+FROM ruby:2.6.3
 
 ENV APP_ROOT /katsuya-place
 WORKDIR $APP_ROOT
