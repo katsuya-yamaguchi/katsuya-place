@@ -7,6 +7,7 @@ jobs:
       - run:
           command: docker-compose build
 
+      - run: docker-compose up -d
       - run: docker-compose run --rm app rails db:create
       - run: docker-compose run --rm app rails db:migrate
       - run: docker-compose run --rm app rails admin_user_management:add_user
