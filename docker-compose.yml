@@ -6,6 +6,8 @@ services:
       RAILS_ENV: development
       DATABASE_URL: mysql2://root:pass@mysql:3306
       MYSQL_ROOT_PASSWORD: 'pass'
+      ADMIN_EMAIL: 'admin@admin.com'
+      ADMIN_PASSWORD: '123456abc'
     ports:
       - '8888:8888'
     volumes:
