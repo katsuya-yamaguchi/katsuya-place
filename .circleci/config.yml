@@ -4,15 +4,21 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run:
-          command: docker-compose build
-
+      - run: docker-compose build
       - run: docker-compose up -d
-      - run: sleep 10
+
+      - run: 
+          name: sleep for image start
+          command: sleep 10
+
+      # DB setup
       - run: docker-compose run app rails db:create
       - run: docker-compose run app rails db:migrate
-      - run: docker-compose run app rails admin_user_management:add_user
+
+      - run: 
+          name: create admin user
+          command: docker-compose run app rails admin_user_management:add_user
 
       - run:
           name: run tests
-          command: rspec
+          command: docker-compose run app rspec
