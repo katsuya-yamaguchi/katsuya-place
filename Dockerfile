@@ -22,6 +22,8 @@ RUN \
 
 COPY . $APP_ROOT/
 
+RUN sleep 20
+
 EXPOSE 8888
 
 CMD ["rails", "server", "-b", "0.0.0.0", "-p", "8888"]

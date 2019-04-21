@@ -5,7 +5,6 @@ jobs:
     steps:
       - checkout
       - run: docker-compose build
-      - run: sleep 20
       - run: docker-compose up -d
 
       - run: 
