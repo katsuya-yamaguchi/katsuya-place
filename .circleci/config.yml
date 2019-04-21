@@ -7,14 +7,10 @@ jobs:
       - run:
           command: docker-compose build
 
-      - run:
-          name: sleep for db lunch
-          command: sleep 10
-
       - run: docker-compose up -d
-      - run: docker-compose run --rm app rails db:create
-      - run: docker-compose run --rm app rails db:migrate
-      - run: docker-compose run --rm app rails admin_user_management:add_user
+      - run: docker-compose run app rails db:create
+      - run: docker-compose run app rails db:migrate
+      - run: docker-compose run app rails admin_user_management:add_user
 
       - run:
           name: run tests
