@@ -20,7 +20,7 @@ RUN \
   bundle install && \
   rm -rf ~/.gem
 
-COPY ./* $APP_ROOT/
+COPY .* $APP_ROOT/
 
 EXPOSE 8888
 
