@@ -14,6 +14,7 @@ jobs:
       # DB setup
       - run: docker-compose run app rails db:create
       - run: docker-compose run app rails db:migrate
+      - run: docker-compose run app rails db:seed
 
       - run: 
           name: create admin user
