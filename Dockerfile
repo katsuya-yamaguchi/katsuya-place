@@ -1,6 +1,6 @@
 FROM ruby:2.6.3
 
-ENV APP_ROOT /katsuya-place
+ENV APP_ROOT ~/katsuya-place
 WORKDIR $APP_ROOT
 
 RUN apt-get update && \
