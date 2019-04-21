@@ -4,7 +4,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: docker-compose build
+      - run: docker-compose build --no-cache
       - run: docker-compose up -d
 
       - run: 
