@@ -32,7 +32,7 @@
 /vendor/bundle/*
 /app/frontend/node_modules/*
 
-/app/assets/images/
+/app/assets/images/*
 !/app/assets/images/sample.jpg
 
 /app/assets/javascripts/*
