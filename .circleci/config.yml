@@ -50,6 +50,6 @@ workflows:
   build:
     jobs:
       - build
-      - test
+      - test:
         requires:
           - build
