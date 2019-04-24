@@ -8,11 +8,11 @@ jobs:
           key: docker-{{ checksum ".circleci/config.yml" }}-{{ checksum "docker-compose.yml" }}-{{ checksum "Dockerfile" }}
           paths: ~/image.tar
       - run:
-        command: |
-          if [ ! -f ~/image.tar ];then
-            docker-compose build
-            docker save $(docker images -q) -o ~/image.tar
-          fi
+          command: |
+            if [ ! -f ~/image.tar ]; then
+              docker-compose build
+              docker save $(docker images -q) -o ~/image.tar
+            fi
       - save_cache:
           key: docker-{{ checksum ".circleci/config.yml" }}-{{ checksum "docker-compose.yml" }}-{{ checksum "Dockerfile" }}
           paths: ~/image.tar
