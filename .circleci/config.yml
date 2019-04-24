@@ -1,60 +1,55 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
 version: 2
 jobs:
   build:
-    docker:
-      # specify the version you desire here
-       - image: circleci/ruby:2.4.1-node-browsers
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/katsuya-place
-    branches:
-      only:
-        - create-login-func
-
+    machine: true
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
+          key: docker-{{ checksum ".circleci/config.yml" }}-{{ checksum "docker-compose.yml" }}-{{ checksum "Dockerfile" }}
+          paths: ~/image.tar
       - run:
-          name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
+            if [ ! -f ~/image.tar ]; then
+              docker-compose build
+              docker save $(docker images -q) -o ~/image.tar
+            fi
       - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+          key: docker-{{ checksum ".circleci/config.yml" }}-{{ checksum "docker-compose.yml" }}-{{ checksum "Dockerfile" }}
+          paths: ~/image.tar
 
-      # run tests!
+  test:
+    machine: true
+    steps:
+      - checkout
+      - restore_cache:
+          key: docker-{{ checksum ".circleci/config.yml" }}-{{ checksum "docker-compose.yml" }}-{{ checksum "Dockerfile" }}
+          paths: ~/image.tar
+
+      - run: docker load -i ~/image.tar
+      - run: docker-compose up -d
+
+      - run: 
+          name: sleep for image start
+          command: sleep 10
+
+      # DB setup
+      - run: docker-compose run app rails db:create
+      - run: docker-compose run app rails db:migrate
+      - run: docker-compose run app rails db:seed
+
+      - run: 
+          name: create admin user
+          command: docker-compose run app rails admin_user_management:add_user
+
       - run:
           name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            
-            bundle exec rspec $TEST_FILES
+          command: docker-compose run app rspec
 
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
