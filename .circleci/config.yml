@@ -9,7 +9,7 @@ jobs:
           paths: ~/image.tar
       - run:
         command: |
-          if [! -f ~/image.tar ];then
+          if [ ! -f ~/image.tar ];then
             docker-compose build
             docker save $(docker images -q) -o ~/image.tar
           fi
