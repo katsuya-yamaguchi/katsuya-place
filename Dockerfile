@@ -31,6 +31,7 @@ WORKDIR $APP_ROOT/app/frontend
 RUN yarn install && \
     yarn build-dev
 
+WORKDIR $APP_ROOT
 EXPOSE 8888
 
 CMD ["rails", "server", "-b", "0.0.0.0", "-p", "8888"]
