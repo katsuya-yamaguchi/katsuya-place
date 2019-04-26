@@ -1,5 +1,5 @@
 class NewArticleController < ApplicationController
-  before_action :check_login_status, only: [:index, :create]
+  before_action :check_login_status, only: %i[index create]
 
   def index
   end

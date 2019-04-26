@@ -1,5 +1,5 @@
 class AdminUsersController < ApplicationController
-  before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_user, only: %i[show edit update destroy]
 
   # GET /admin_users
   # GET /admin_users.json
