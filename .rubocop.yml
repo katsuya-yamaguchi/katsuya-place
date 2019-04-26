@@ -4,6 +4,10 @@ Style/FrozenStringLiteralComment:
 Style/Documentation:
   Enabled: false
 
+# Use only ascii symbols in comments.
+AsciiComments:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'bin/**/*'
