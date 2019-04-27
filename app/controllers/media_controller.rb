@@ -7,8 +7,7 @@ class MediaController < ApplicationController
   end
 
   # GET /media/upload
-  def index_upload
-  end
+  def index_upload; end
 
   # POST /media/upload
   def create_upload
@@ -18,11 +17,12 @@ class MediaController < ApplicationController
   end
 
   private
-    def check_login_status
-      logged_in?
-    end
 
-    def media_params
-      params.require(:media).permit(:avatar)
-    end
+  def check_login_status
+    logged_in?
+  end
+
+  def media_params
+    params.require(:media).permit(:avatar)
+  end
 end

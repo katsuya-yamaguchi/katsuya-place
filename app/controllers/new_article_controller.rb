@@ -1,8 +1,7 @@
 class NewArticleController < ApplicationController
   before_action :check_login_status, only: %i[index create]
 
-  def index
-  end
+  def index; end
 
   def create
     if Category.exists?(category_name: params[:articles][:category_name])
@@ -26,29 +25,30 @@ class NewArticleController < ApplicationController
   end
 
   private
-    def check_login_status
-      logged_in?
-    end
 
-    def article_params
-      params.require(:articles).permit(
-        :content_title,
-        :content_url,
-        :meta_description,
-        :content_text,
-        :open_status,
-        :fixed_status,
-        :famous_status,
-        :top_image,
-        :media_id
-      )
-    end
+  def check_login_status
+    logged_in?
+  end
 
-    def category_params
-      params.require(:articles).permit(:category_name)
-    end
+  def article_params
+    params.require(:articles).permit(
+      :content_title,
+      :content_url,
+      :meta_description,
+      :content_text,
+      :open_status,
+      :fixed_status,
+      :famous_status,
+      :top_image,
+      :media_id
+    )
+  end
 
-    def top_image_params
-      params.require(:articles).permit(:top_image)
-    end
+  def category_params
+    params.require(:articles).permit(:category_name)
+  end
+
+  def top_image_params
+    params.require(:articles).permit(:top_image)
+  end
 end

@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   # GET /articles
   def index
     @famous_articles = Article.where(famous_status: 1)
@@ -17,8 +16,9 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # 「/articles/test」の最後のurlを取得する処理
-    def get_article_url
-      request.fullpath.split('/').last
-    end
+
+  # 「/articles/test」の最後のurlを取得する処理
+  def get_article_url
+    request.fullpath.split('/').last
+  end
 end

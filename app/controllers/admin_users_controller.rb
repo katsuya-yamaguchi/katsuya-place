@@ -9,8 +9,7 @@ class AdminUsersController < ApplicationController
 
   # GET /admin_users/1
   # GET /admin_users/1.json
-  def show
-  end
+  def show; end
 
   # GET /admin_users/new
   def new
@@ -18,8 +17,7 @@ class AdminUsersController < ApplicationController
   end
 
   # GET /admin_users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /admin_users
   # POST /admin_users.json
@@ -62,13 +60,14 @@ class AdminUsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_user
-      @admin_user = AdminUser.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_user_params
-      params.fetch(:admin_user, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_user
+    @admin_user = AdminUser.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_user_params
+    params.fetch(:admin_user, {})
+  end
 end

@@ -27,24 +27,25 @@ class AdminArticleController < ApplicationController
   end
 
   private
-    def article_params
-      params.require(:articles).permit(
-        :content_title,
-        :content_url,
-        :meta_description,
-        :content_text,
-        :open_status,
-        :fixed_status,
-        :famous_status
-      )
-    end
 
-    def category_params
-      params.require(:articles).permit(:category_name)
-    end
+  def article_params
+    params.require(:articles).permit(
+      :content_title,
+      :content_url,
+      :meta_description,
+      :content_text,
+      :open_status,
+      :fixed_status,
+      :famous_status
+    )
+  end
 
-    # 「/admin_users/1/articles/1」の最後のIDを取得する処理
-    def get_article_id
-      request.fullpath.split('/').last.to_i
-    end
+  def category_params
+    params.require(:articles).permit(:category_name)
+  end
+
+  # 「/admin_users/1/articles/1」の最後のIDを取得する処理
+  def get_article_id
+    request.fullpath.split('/').last.to_i
+  end
 end
