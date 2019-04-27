@@ -8,7 +8,7 @@ module SessionsHelper
     elsif user_id = cookies.signed[:user_id]
       user = AdminUser.find_by(id: user_id)
       ## 記憶トークンが正しいかチェック
-      if user && user.authenticated?(cookies[:remember_token])
+      if user&.authenticated?(cookies[:remember_token])
         session[:user_id] = user.id
         @current_user = user
       end
@@ -16,9 +16,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    if current_user.nil?
-      redirect_to login_path
-    end
+    redirect_to login_path if current_user.nil?
   end
 
   # ユーザーのセッションを永続的にする
