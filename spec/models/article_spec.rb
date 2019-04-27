@@ -2,18 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Article, type: :model do
   describe '#validates' do
-    let(:article_params){
+    let(:article_params) do
       {
         content_title: 'sample',
         content_url: 'https://sample.com',
         meta_description: 'sample',
-        content_text: 'sample',
+        content_text: 'sample'
       }
-    }
+    end
 
-    let(:category){
+    let(:category) do
       Category.create(category_name: 'test')
-    }
+    end
 
     context ':content_titleが存在していない時、' do
       it 'バリデーションが失敗すること' do

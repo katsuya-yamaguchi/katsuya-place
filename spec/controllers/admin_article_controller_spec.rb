@@ -4,7 +4,7 @@ RSpec.describe AdminArticleController, type: :controller do
   describe '#index' do
     include SessionsHelper
 
-    let(:login){
+    let(:login) do
       user_params = {
         id: 1,
         created_at: Time.new,
@@ -14,13 +14,13 @@ RSpec.describe AdminArticleController, type: :controller do
         password_confirmation: '123456789',
         remember_digest: 'aaaa'
       }
-      user = AdminUser.new(user_params);
+      user = AdminUser.new(user_params)
       user.save!
       remember user
-    }
+    end
 
-    let(:create_articles){
-      for x in 1..10 do
+    let(:create_articles) do
+      (1..10).each do |x|
         article_params = {
           content_title: x,
           content_url: x,
@@ -33,7 +33,7 @@ RSpec.describe AdminArticleController, type: :controller do
         category = Category.create(category_name: x)
         article = category.article.create(article_params)
       end
-    }
+    end
 
     it '記事一覧を取得できること' do
       login
@@ -47,7 +47,7 @@ RSpec.describe AdminArticleController, type: :controller do
   describe '#show' do
     include SessionsHelper
 
-    let(:login){
+    let(:login) do
       user_params = {
         id: 1,
         created_at: Time.new,
@@ -57,15 +57,15 @@ RSpec.describe AdminArticleController, type: :controller do
         password_confirmation: '123456789',
         remember_digest: 'aaaa'
       }
-      user = AdminUser.new(user_params);
+      user = AdminUser.new(user_params)
       user.save!
       remember user
-    }
-    let(:create_articles){
+    end
+    let(:create_articles) do
       image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
       Medium.create(avatar: image_path)
 
-      for x in 1..10 do
+      (1..10).each do |x|
         article_params = {
           content_title: x,
           content_url: x,
@@ -79,7 +79,7 @@ RSpec.describe AdminArticleController, type: :controller do
         category = Category.create(category_name: x)
         article = category.article.create(article_params)
       end
-    }
+    end
 
     it '記事情報が取得できること' do
       login
@@ -93,7 +93,7 @@ RSpec.describe AdminArticleController, type: :controller do
   describe '#edit' do
     include SessionsHelper
 
-    let(:login){
+    let(:login) do
       user_params = {
         id: 1,
         created_at: Time.new,
@@ -103,12 +103,12 @@ RSpec.describe AdminArticleController, type: :controller do
         password_confirmation: '123456789',
         remember_digest: 'aaaa'
       }
-      user = AdminUser.new(user_params);
+      user = AdminUser.new(user_params)
       user.save!
       remember user
-    }
+    end
 
-    let(:create_articles){
+    let(:create_articles) do
       image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
       Medium.create(avatar: image_path)
 
@@ -124,9 +124,9 @@ RSpec.describe AdminArticleController, type: :controller do
       }
       category = Category.create(category_name: 'rails')
       article = category.article.create(article_params)
-    }
+    end
 
-    let(:update_params){
+    let(:update_params) do
       {
         content_title: 'sample',
         content_url: '/sample.com',
@@ -137,12 +137,12 @@ RSpec.describe AdminArticleController, type: :controller do
         fixed_status: 0,
         famous_status: 0
       }
-    }
+    end
 
     it '記事の更新が成功すること' do
       login
       create_articles
-      post :edit, params:{ articles: update_params, admin_user_id: 1, article_id: 1 }
+      post :edit, params: { articles: update_params, admin_user_id: 1, article_id: 1 }
       expect(Article.find(1)[:content_title]).to eq 'sample'
       expect(Category.find(1)[:category_name]).to eq 'sample'
     end

@@ -13,8 +13,8 @@ RSpec.describe ArticlesController, type: :controller do
   end
 
   describe '#show' do
-    let(:create_articles){
-      for x in 1..10 do
+    let(:create_articles) do
+      (1..10).each do |x|
         article_params = {
           content_title: x,
           content_url: x,
@@ -27,7 +27,7 @@ RSpec.describe ArticlesController, type: :controller do
         category = Category.create(category_name: x)
         article = category.article.create(article_params)
       end
-    }
+    end
 
     it '記事が取得できること' do
       create_articles

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdminUser, type: :model do
-  let(:user){
+  let(:user) do
     user_params = {
       id: 1,
       created_at: Time.new,
@@ -11,13 +11,13 @@ RSpec.describe AdminUser, type: :model do
       password_confirmation: '123456789',
       remember_digest: 'aaaa'
     }
-    AdminUser.new(user_params);
-  }
+    AdminUser.new(user_params)
+  end
 
   describe 'validation' do
-    let(:admin_user){
+    let(:admin_user) do
       AdminUser.new(email: 'sample@sample.com', password: '123456789', password_confirmation: '123456789')
-    }
+    end
 
     it 'should be valid.' do
       expect(admin_user.valid?).to equal(true)

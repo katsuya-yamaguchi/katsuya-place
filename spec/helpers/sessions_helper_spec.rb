@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SessionsHelper, type: :helper do
-  let(:user){
+  let(:user) do
     user_params = {
       id: 1,
       created_at: Time.new,
@@ -11,8 +11,8 @@ RSpec.describe SessionsHelper, type: :helper do
       password_confirmation: '123456789',
       remember_digest: 'aaaa'
     }
-    AdminUser.new(user_params);
-  }
+    AdminUser.new(user_params)
+  end
 
   describe '#remember' do
     it 'user id is set for cookie.' do

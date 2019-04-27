@@ -4,7 +4,7 @@ RSpec.describe NewArticleController, type: :controller do
   describe '#create' do
     include SessionsHelper
 
-    let(:login){
+    let(:login) do
       user_params = {
         id: 1,
         created_at: Time.new,
@@ -14,12 +14,12 @@ RSpec.describe NewArticleController, type: :controller do
         password_confirmation: '123456789',
         remember_digest: 'aaaa'
       }
-      user = AdminUser.new(user_params);
+      user = AdminUser.new(user_params)
       user.save!
       remember user
-    }
+    end
 
-    let(:article_params){
+    let(:article_params) do
       {
         content_title: 'sample',
         content_url: 'https://sample.com',
@@ -31,7 +31,7 @@ RSpec.describe NewArticleController, type: :controller do
         famous_status: 0,
         media_id: 1
       }
-    }
+    end
 
     context 'カテゴリが既に登録されている場合、' do
       it '記事の作成に成功する' do
@@ -39,7 +39,7 @@ RSpec.describe NewArticleController, type: :controller do
         Category.create(category_name: 'rails')
         image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
         Medium.create(avatar: image_path)
-        post :create, params:{ articles: article_params, admin_user_id: 1}
+        post :create, params: { articles: article_params, admin_user_id: 1 }
 
         expect(Article.exists?).to eq true
       end
@@ -50,7 +50,7 @@ RSpec.describe NewArticleController, type: :controller do
         login
         image_path = fixture_file_upload(Rails.root.join('app/assets/images', 'sample.jpg'))
         Medium.create(avatar: image_path)
-        post :create, params:{ articles: article_params, admin_user_id: 1}
+        post :create, params: { articles: article_params, admin_user_id: 1 }
 
         expect(Category.exists?).to eq true
         expect(Article.exists?).to eq true
