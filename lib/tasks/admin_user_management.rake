@@ -1,11 +1,11 @@
 namespace :admin_user_management do
   desc ''
-  task :add_user => :environment do
+  task add_user: :environment do
     if AdminUser.all[0]
       p '[ERROR] 既に管理ユーザーが作成されています。'
       exit
     end
-    
+
     unless ENV['ADMIN_EMAIL'] || ENV['ADMIN_PASSWORD']
       p '[ERROR] 管理者ユーザー情報を環境変数に設定して下さい。(email or password)'
       exit
@@ -20,12 +20,12 @@ namespace :admin_user_management do
       password_confirmation: ENV['ADMIN_PASSWORD']
     }
 
-    user = AdminUser.new(user_params);
+    user = AdminUser.new(user_params)
     user.save!
     p '[INFO] ユーザーの追加に成功しました。'
   end
 
-  task :delete_user => :environment do
+  task delete_user: :environment do
     if AdminUser.count == 0
       p '[INFO] 既にユーザーは削除されています。'
       exit
