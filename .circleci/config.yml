@@ -44,9 +44,9 @@ jobs:
       - run:
           name: run tests
           command: docker-compose run app rspec
-      - run:
-          name: run rubocop
-          command: docker-compose run app rubocop
+      #- run:
+      #    name: run rubocop
+      #    command: docker-compose run app rubocop
 
 workflows:
   version: 2
