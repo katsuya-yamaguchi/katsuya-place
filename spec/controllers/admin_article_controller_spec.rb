@@ -126,7 +126,7 @@ RSpec.describe AdminArticleController, type: :controller do
       article = category.article.create(article_params)
     end
 
-    let(:update_params) do
+    let(:update_params){
       {
         content_title: 'sample',
         content_url: '/sample.com',
@@ -137,7 +137,7 @@ RSpec.describe AdminArticleController, type: :controller do
         fixed_status: 0,
         famous_status: 0
       }
-    end
+    }
 
     it '記事の更新が成功すること' do
       login
